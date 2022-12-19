@@ -1,0 +1,116 @@
+<html>
+<head>
+<br>
+<br>
+<p class="header">INFOUNDER</p>
+</head>
+<body>
+<style>
+body{margin:0 auto;text-align:center; background-color: #f1f1f1}
+
+.sarmal{margin:0 auto;text-align:center; width:950px;}
+
+.header {
+font-family: Tahoma, Geneva, sans-serif;
+font-size: 55px;
+letter-spacing: -1px;
+word-spacing: -2px;
+color: #dcdcdc;
+text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: uppercase;
+}
+.label {
+font-family: "Arial Black", Gadget, sans-serif;
+font-size: 16px;
+letter-spacing: 0px;
+word-spacing: 0px;
+color: #000000;
+font-weight: 400;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: italic;
+font-variant: normal;
+text-transform: capitalize;
+}
+
+.label2 {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px;
+letter-spacing: 0px;
+word-spacing: 0px;
+color: #000000;
+font-weight: 700;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: normal;
+text-transform: capitalize;
+}
+
+.box {
+box-shadow: 2px 2px #353535;
+font-family: Arial;
+font-weight:700;
+}
+.box:hover {
+background-color:#EDEDED;
+box-shadow: 2px 2px #353535;
+font-family: Arial;
+font-weight:700;
+}
+</style>
+<div class="sarmal">
+
+<p class="label">Search Articles in English</p>
+ <input class="label2" type="text" id="search" name="search" value="search"> 
+ <label class="label2" for="selects">Select Database</label>
+  <select class="box" name="selects" id="Selection">
+   <option value="SD">ScienceDirect</option>
+    <option value="GS">Google Scholar</option>
+    <option value="A">Academia</option>
+	 <option value="AC">Acarindex</option>
+     <option value="DO">DOAJ</option>
+	 <option value="SP">Springer link</option>
+	  </select><br>
+<br><button class="box" onclick="src()">Search</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p class="label">Created By Dinç Erdem</p>
+</div>
+ <script>
+ function src() {
+let text,select;
+text=document.getElementById("search").value;
+select=document.getElementById("Selection").value;
+
+if (select=="GS") {
+    window.open("https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q="+text);
+} else if  (select=="A") {
+  window.open("https://www.academia.edu/search?q="+text);
+} else if  (select=="SD") {
+  window.open("https://www.sciencedirect.com/search?qs="+text);
+} else if  (select=="AC") {
+  window.open("https://www.acarindex.com/search?type=article&q="+text);
+} else if  (select=="DO") {
+let newtext,resulttext;
+newtext= 'https://doaj.org/search/articles?ref=homepage-box&source=%7B"query"%3A%7B"query_string"%3A%7B"query"%3A"jonathan"%2C"default_operator"%3A"AND"%7D%7D%2C"track_total_hits"%3Atrue%7D';
+resulttext= newtext.replace(/jonathan/gi, text);
+  window.open(resulttext);
+} else if  (select=="SP") {
+let nnewtext,rresulttext;
+nnewtext= 'https://link.springer.com/search?query=nature&facet-content-type="Article"';
+rresulttext= nnewtext.replace(/nature/gi, text);
+  window.open(rresulttext);
+} else {
+  window.alert("SELECT DATABASE!!!!");
+ }
+ }
+ </script>
+ </body>
+</html>
